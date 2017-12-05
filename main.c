@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 16:23:48 by carmenia          #+#    #+#             */
-/*   Updated: 2017/12/05 18:44:53 by carmenia         ###   ########.fr       */
+/*   Created: 2017/12/05 18:18:40 by carmenia          #+#    #+#             */
+/*   Updated: 2017/12/05 18:45:03 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "fillit.h"
 
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-void	ft_file_reader();
-void	ft_printer();
-void	ft_tetromino_detect();
-
-#endif
+int	main(int argc, char **argv)
+{
+	if (argc != 2)
+	{
+		ft_putstr("usage: ./fillit sample_file\n");
+		return (0);
+	}
+}
