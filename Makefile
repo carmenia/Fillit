@@ -1,24 +1,26 @@
 NAME = Fillit
 
-SRCS=
+SRCS= main.c			\
 
-INCL = -I ./
+LIBFT = libft
 
 SRCO = $(SRCS:.c=.o)
+
+INCL = -I ./
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(SRCO)
-	ar rc $(NAME) $(SRCO)
-	ranlib $(NAME)
+$(LIBFT):
+	@make -c $(@)
 
-%.o: %.c
-	gcc -Wall -Wextra -Werror -c $(INCL) $^
+$(NAME): $(LIBFT)
+	gcc -Wall -Wextra -Werror -o $(NAME) $(LIBFT) $(INCL)
 
 clean:
 	rm -f $(SRCO)
+	@make -c $(LIBFT) clean
 
 flcean: clean
 	rm -f $(NAME)
