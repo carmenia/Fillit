@@ -6,13 +6,35 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 18:41:10 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/09 17:39:52 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/09 17:50:52 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_mino	*fetch_piece(char *s, char letter)
+void	ft_mino_border(char *s, t_point *min, t_point *max)
+{
+	int	i;
+
+	i = 0;
+	while (i < 20)
+	{
+		if (s[i] == '#')
+		{
+			if (i / 5 < min->y)
+				min->y = i / 5;
+			if (i / 5 > max->y)
+				max->y = i / 5;
+			if (i % 5 < min->x)
+				min->x = i % 5;
+			if (i % 5 > max->x)
+				max->x = i % 5;
+		}
+		i++;
+	}
+}
+
+t_mino	*ft_fetch_mino(char *s, char letter)
 {
 	
 }
