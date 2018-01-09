@@ -1,14 +1,22 @@
+
+/*
+** essayer methode: %.o: %.c \n gcc -Flag -c $(INCL) ^$
+*/
+
+
 NAME = Fillit
 
-SRCS= main.c			\
+SRCS= main.c				\
+	  ft_file_reader.c		\
+	  ft_tetromino_detect.c	\
+
+.PHONY: all clean fclean re
 
 LIBFT = libft
 
 SRCO = $(SRCS:.c=.o)
 
 INCL = -I ./
-
-.PHONY: all clean fclean re
 
 all: $(NAME)
 

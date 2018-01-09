@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 16:23:48 by carmenia          #+#    #+#             */
-/*   Updated: 2017/12/05 18:44:53 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/09 14:01:55 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-void	ft_file_reader();
-void	ft_printer();
-void	ft_tetromino_detect();
+typedef struct	s_list
+{
+
+};				t_list
+void			ft_file_reader();
+void			ft_printer();
+void			ft_tetromino_detect();
 
 #endif

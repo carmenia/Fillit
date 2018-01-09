@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 18:18:40 by carmenia          #+#    #+#             */
-/*   Updated: 2017/12/05 18:45:03 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/09 14:28:43 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit sample_file\n");
-		return (0);
+		return (1);
 	}
 }
