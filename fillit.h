@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 16:23:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/09 17:50:49 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/09 18:41:03 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct	s_point
 typedef struct	s_mino
 {
 	char	**pos;
-	int		height;
-	int		length;
+	int		lenght;
+	int		width;
 	char	count;
 }				t_mino;
 
