@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:14:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/09 18:25:34 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/09 18:39:25 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 faire un free_list, un free_mino, un new mino et un new_point
 
-t_list	*free_list(t_list *list)
+t_list	*ft_free_list(t_list *list)
 {
 	t_mino	*mino;
 	t_list	*next;
@@ -28,7 +28,7 @@ t_list	*free_list(t_list *list)
 	return (NULL);
 }
 
-void	free_mino(t_mino *mino)
+void	ft_free_mino(t_mino *mino)
 {
 	int	i;
 
@@ -40,4 +40,14 @@ void	free_mino(t_mino *mino)
 	}
 	ft_memdel((void **)(&(mino->pos)));
 	ft_memdel((void **)&mino);
+}
+
+t_point	ft_new_point(int x, int y)
+{
+	t_point	*point;
+
+	point = ft_memalloc(sizeof(t_point));
+	point->x = x;
+	point->y = y;
+	return (point);
 }
