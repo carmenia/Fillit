@@ -29,4 +29,4 @@ s'il y a une erreur, mettre erreur sur la sortie standard et quitter proprement
 3: fonction de rendu
 
 4: fonction de detection du tetromino
-23 possibilites
+19 possibilites

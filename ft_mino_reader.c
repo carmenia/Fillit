@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tetromino_detect.c                              :+:      :+:    :+:   */
+/*   ft_mino_reader.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 18:41:10 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/09 17:50:52 by carmenia         ###   ########.fr       */
+/*   Created: 2018/01/09 18:11:54 by carmenia          #+#    #+#             */
+/*   Updated: 2018/01/09 18:11:58 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "libft.h"
 
 void	ft_mino_border(char *s, t_point *min, t_point *max)
 {
@@ -103,8 +104,14 @@ void	ft_read_mino(int fd)
 	cur = 'A';
 	while((count = read(fd, buf, 21)) >= 20)
 	{
-
+		if (ft_check_mino_environment(buf, count) !=0
+				|| (mino = fetch_piece(buf, cur++)) == NULL)
+			return (free_list(list));
+		ft_lstadd(&list, ft_lstnew(mino, sizeof(t_mino)));
+		ft_memdel((void **)&mino);
 	}
-
-
+	if (count != 0)
+		return (free_list(list));
+	ft_lstrev(&list);
+	return (list);
 }
