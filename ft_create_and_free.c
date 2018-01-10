@@ -6,11 +6,15 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:14:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/09 18:39:25 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/10 20:23:25 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-faire un free_list, un free_mino, un new mino et un new_point
+#include "fillit.h"
+
+/*
+**faire un free_list, un free_mino, un new mino et un new_point
+*/
 
 t_list	*ft_free_list(t_list *list)
 {
@@ -21,7 +25,7 @@ t_list	*ft_free_list(t_list *list)
 	{
 		mino = (t_mino *)list->content;
 		next = list->next;
-		free_mino(mino);
+		ft_free_mino(mino);
 		ft_memdel((void **)&list);
 		list = next;
 	}
@@ -35,14 +39,14 @@ void	ft_free_mino(t_mino *mino)
 	i = 0;
 	while (i < mino->length)
 	{
-		ft_memdel((void **)(&(mino->pos[i])));
+		ft_memdel((void **)(&(mino->form[i])));
 		i++;
 	}
-	ft_memdel((void **)(&(mino->pos)));
+	ft_memdel((void **)(&(mino->form)));
 	ft_memdel((void **)&mino);
 }
 
-t_point	ft_new_point(int x, int y)
+t_point	*ft_new_point(int x, int y)
 {
 	t_point	*point;
 
@@ -50,4 +54,16 @@ t_point	ft_new_point(int x, int y)
 	point->x = x;
 	point->y = y;
 	return (point);
+}
+
+t_mino	*new_mino(char **form, int width, int length, char letter)
+{
+	t_mino	*mino;
+
+	mino = ft_memalloc(sizeof(t_mino));
+	mino->form = form;
+	mino->length = length;
+	mino->width = width;
+	mino->letter = letter;
+	return (mino);
 }

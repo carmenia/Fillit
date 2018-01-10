@@ -1,14 +1,9 @@
 
-/*
-** essayer methode: %.o: %.c \n gcc -Flag -c $(INCL) ^$
-*/
-
-
 NAME = Fillit
 
-SRCS= main.c				\
-	  ft_file_reader.c		\
-	  ft_tetromino_detect.c	\
+SRCS=	main.c					\
+		ft_mino_reader.c		\
+		ft_create_and_free.c	\
 
 .PHONY: all clean fclean re
 
@@ -16,7 +11,7 @@ LIBFT = libft
 
 SRCO = $(SRCS:.c=.o)
 
-INCL = -I ./
+INCL = -I
 
 all: $(NAME)
 
@@ -24,7 +19,7 @@ $(LIBFT):
 	@make -c $(@)
 
 $(NAME): $(LIBFT)
-	gcc -Wall -Wextra -Werror -o $(NAME) $(LIBFT) $(INCL)
+	gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) $(INCL) $(LIBFT)
 
 clean:
 	rm -f $(SRCO)
