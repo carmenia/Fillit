@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:11:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/10 20:28:01 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/11 20:06:39 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ t_mino	*ft_fetch_mino(char *s, char letter)
 		i++;
 	}
 	mino = ft_new_mino(form, max->x - min->x + 1, max->y - min->y, letter);
+	ft_memdel((void **)&min);
+	ft_memdel((void **)&max);
 	return (mino);
 }
 
@@ -119,15 +121,20 @@ t_list	*ft_read_mino(int fd)
 	t_mino	*mino;
 
 	buf = ft_strnew(21);
+	list = NULL;
 	cur = 'A';
 	while((count = read(fd, buf, 21)) >= 20)
 	{
 		if (ft_check_mino_environment(buf, count) !=0
 				|| (mino = ft_fetch_mino(buf, cur++)) == NULL)
+		{
+			ft_memdel((void**)&buf);
 			return (ft_free_list(list));
+		}
 		ft_lstadd(&list, ft_lstnew(mino, sizeof(t_mino)));
 		ft_memdel((void **)&mino);
 	}
+	ft_memdel((void **)&buf);
 	if (count != 0)
 		return (ft_free_list(list));
 	ft_lstrev(&list);

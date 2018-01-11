@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:14:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/10 20:23:25 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/11 19:25:31 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_point	*ft_new_point(int x, int y)
 	return (point);
 }
 
-t_mino	*new_mino(char **form, int width, int length, char letter)
+t_mino	*ft_new_mino(char **form, int width, int length, char letter)
 {
 	t_mino	*mino;
 

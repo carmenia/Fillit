@@ -1,31 +1,37 @@
 
 NAME = Fillit
 
-SRCS=	main.c					\
+SRC=	main.c					\
 		ft_mino_reader.c		\
 		ft_create_and_free.c	\
+		ft_solve.c				\
+		ft_mapper_functions.c	\
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re libft
+OBJ = ${SRC:.c=.o}
 
-LIBFT = libft
+CC = clang
 
-SRCO = $(SRCS:.c=.o)
+CFLAGS = -Wall -Wextra -Werror -I Libft 
 
-INCL = -I
+LDFLAGS = -L Libft -l ft
 
 all: $(NAME)
 
-$(LIBFT):
-	@make -c $(@)
+$(NAME): libft $(OBJ)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $(NAME) $(OBJ)
 
-$(NAME): $(LIBFT)
-	gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) $(INCL) $(LIBFT)
+libft:
+	Make -C Libft
 
 clean:
-	rm -f $(SRCO)
-	@make -c $(LIBFT) clean
+	rm -rf $(OBJ)
+	Make -C Libft clean
 
-flcean: clean
-	rm -f $(NAME)
+fclean: clean
+	rm -rf $(NAME)
+	Make -C Libft fclean
 
 re: fclean all
+	Make -C Libft re
+
