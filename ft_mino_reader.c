@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:11:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/11 20:06:39 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/12 13:16:48 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int		ft_check_mino_self(char *s)
 		if (s[i] == '#')
 		{
 			if (((i + 1) < 20 && s[i + 1] == '#')
-					|| ((i - 1) > 0 && s[i - 1] =='#')
+					|| ((i - 1) >= 0 && s[i - 1] =='#')
 					|| ((i + 5) < 20 && s[i + 5] == '#')
-					|| ((i - 5) > 0 && s[i - 5] == '#'))
+					|| ((i - 5) >= 0 && s[i - 5] == '#'))
 				part++;
 		}
 		i++;
@@ -96,7 +96,7 @@ int		ft_check_mino_environment(char *s, int count)
 	{
 		if (i % 5 < 4)
 		{
-			if (s[i] != '.' || s[i]!= '#')
+			if (!(s[i] == '.' || s[i] == '#'))
 				return (1);
 			if (s[i] == '#' && ++part > 4)
 				return (1);
@@ -105,9 +105,9 @@ int		ft_check_mino_environment(char *s, int count)
 			return (1);
 		i++;
 	}
-	if (count == 21 && s[i] != '\n')
+	if (count == 21 && s[20] != '\n')
 		return (1);
-	if (ft_check_mino_self(s) != 1)
+	if (!ft_check_mino_self(s))
 		return (1);
 	return (0);
 }
