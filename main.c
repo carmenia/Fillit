@@ -6,13 +6,13 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 18:18:40 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/12 12:35:03 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/12 15:13:02 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	 main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*list;
 	t_map	*map;

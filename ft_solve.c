@@ -6,16 +6,16 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 20:59:04 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/11 19:07:28 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/12 15:05:06 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_map_backtrack(t_map *map, t_list *list)
+int		ft_map_backtrack(t_map *map, t_list *list)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 	t_mino	*mino;
 
 	if (list == NULL)

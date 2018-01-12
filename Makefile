@@ -1,5 +1,5 @@
 
-NAME = Fillit
+NAME = fillit
 
 SRC=	main.c					\
 		ft_mino_reader.c		\

@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:11:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/12 13:16:48 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/12 15:12:41 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_mino	*ft_fetch_mino(char *s, char letter)
 	t_mino	*mino;
 
 	min = ft_new_point(4, 4);
-	max = ft_new_point(0,0);
+	max = ft_new_point(0, 0);
 	ft_mino_border(s, min, max);
 	form = ft_memalloc(sizeof(char *) * (max->y - min->y + 1));
 	i = 0;
@@ -51,10 +51,10 @@ t_mino	*ft_fetch_mino(char *s, char letter)
 	{
 		form[i] = ft_strnew(max->x - min->x + 1);
 		ft_strncpy(form[i], s + (min->x) + (i + min->y) * 5,
-			max->x - min->x + 1);
+				max->x - min->x + 1);
 		i++;
 	}
-	mino = ft_new_mino(form, max->x - min->x + 1, max->y - min->y, letter);
+	mino = ft_new_mino(form, max->x - min->x + 1, max->y - min->y + 1, letter);
 	ft_memdel((void **)&min);
 	ft_memdel((void **)&max);
 	return (mino);
@@ -62,27 +62,27 @@ t_mino	*ft_fetch_mino(char *s, char letter)
 
 int		ft_check_mino_self(char *s)
 {
-	int	i;
-	int part;
+	int block;
+	int i;
 
-	part = 0;
+	block = 0;
 	i = 0;
 	while (i < 20)
 	{
 		if (s[i] == '#')
 		{
-			if (((i + 1) < 20 && s[i + 1] == '#')
-					|| ((i - 1) >= 0 && s[i - 1] =='#')
-					|| ((i + 5) < 20 && s[i + 5] == '#')
-					|| ((i - 5) >= 0 && s[i - 5] == '#'))
-				part++;
+			if ((i + 1) < 20 && s[i + 1] == '#')
+				block++;
+			if ((i - 1) >= 0 && s[i - 1] == '#')
+				block++;
+			if ((i + 5) < 20 && s[i + 5] == '#')
+				block++;
+			if ((i - 5) >= 0 && s[i - 5] == '#')
+				block++;
 		}
 		i++;
 	}
-	if (part == 6 || part == 8)
-		return (1);
-	else
-		return (0);
+	return (block == 6 || block == 8);
 }
 
 int		ft_check_mino_environment(char *s, int count)
@@ -123,9 +123,9 @@ t_list	*ft_read_mino(int fd)
 	buf = ft_strnew(21);
 	list = NULL;
 	cur = 'A';
-	while((count = read(fd, buf, 21)) >= 20)
+	while ((count = read(fd, buf, 21)) >= 20)
 	{
-		if (ft_check_mino_environment(buf, count) !=0
+		if (ft_check_mino_environment(buf, count) != 0
 				|| (mino = ft_fetch_mino(buf, cur++)) == NULL)
 		{
 			ft_memdel((void**)&buf);
