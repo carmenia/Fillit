@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:11:54 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/12 18:10:58 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/15 15:32:24 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ t_list	*ft_read_mino(int fd)
 		ft_lstadd(&list, ft_lstnew(mino, sizeof(t_mino)));
 		ft_memdel((void **)&mino);
 	}
-	if (count != 0 || cur > 'Z')
+	if (count != 0 || cur >= 'Z')
 		return (ft_free_list(list));
 	ft_memdel((void **)&buf);
 	ft_lstrev(&list);

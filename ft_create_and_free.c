@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_create_and_free.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rmiralle <rmiralle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 18:14:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/11 19:25:31 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/15 13:12:43 by rmiralle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-**faire un free_list, un free_mino, un new mino et un new_point
-*/
 
 t_list	*ft_free_list(t_list *list)
 {
