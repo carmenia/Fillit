@@ -6,7 +6,7 @@
 /*   By: carmenia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 16:23:48 by carmenia          #+#    #+#             */
-/*   Updated: 2018/01/12 15:04:00 by carmenia         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:12:27 by carmenia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include "./libft/libft.h"
+# include "./Libft/libft.h"
 
 typedef struct	s_point
 {
@@ -55,4 +55,7 @@ void			ft_mino_locker(t_mino *mino, t_map *map, t_point *point,
 t_map			*ft_map_maker(int size);
 void			ft_map_printer(t_map *map);
 void			ft_map_freer(t_map *map);
+int				ft_sizefd(char *file);
+char			*ft_strfd(char *file);
+
 #endif
